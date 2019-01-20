@@ -14,5 +14,8 @@
 
 
 <ion-content padding>
-  <location-card></location-card>
+  <div *ngFor="let item of locations | keyvalue">
+
+  </div>
+  <location-card [location]=item.value [key]=item.key></location-card>
 </ion-content>

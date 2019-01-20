@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Location} from "../../app/Location";
+import {StorageProvider} from "../../providers/storage/storage";
 
 /**
  * Generated class for the LocationCardComponent component.
@@ -7,16 +9,22 @@ import { Component } from '@angular/core';
  * Components.
  */
 @Component({
-  selector: 'location-card',
-  templateUrl: 'location-card.html'
+    selector: 'location-card',
+    templateUrl: 'location-card.html'
 })
 export class LocationCardComponent {
+    @Input() location: Location;
+    @Input() key: number;
 
-  text: string;
+    constructor(private storageProvider: StorageProvider) {
+        console.log('Hello LocationCardComponent Component');
+    }
 
-  constructor() {
-    console.log('Hello LocationCardComponent Component');
-    this.text = 'Hello World';
-  }
+    shareLocation() {
 
+    }
+
+    deleteLocation() {
+        this.storageProvider.removeLocation(this.key);
+    }
 }

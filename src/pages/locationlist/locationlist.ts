@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {StorageProvider} from "../../providers/storage/storage";
 
 /**
  * Generated class for the LocationlistPage page.
@@ -10,16 +11,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-locationlist',
-  templateUrl: 'locationlist.html',
+    selector: 'page-locationlist',
+    templateUrl: 'locationlist.html',
 })
 export class LocationlistPage {
+    locations = [];
+    subscription: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams, private storageProvider: StorageProvider) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LocationlistPage');
-  }
+    refreshList()
+    {
+        this.locations = this.storageProvider.getLocations();
+        console.log(this.locations);
+    }
+
+    ionViewDidLoad() {
+        this.refreshList();
+        this.subscription = this.storageProvider.refresh.subscribe(item => this.refreshList());
+    }
 
 }

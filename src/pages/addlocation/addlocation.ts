@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Location } from "../../app/Location";
 
 /**
  * Generated class for the AddlocationPage page.
@@ -15,7 +16,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AddlocationPage {
 
+  location = new Location(0, '', '', '');
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  submit() {
+
   }
 
   ionViewDidLoad() {
