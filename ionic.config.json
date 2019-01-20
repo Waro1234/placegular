@@ -1,0 +1,7 @@
+{
+  "name": "placegular",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
