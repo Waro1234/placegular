@@ -1,0 +1,18 @@
+<ion-card class="welcome-card">
+  <ion-img src="{{ location.photo }}"></ion-img>
+  <ion-card-header>
+    <ion-card-title>{{ location.name }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p>{{ location.description }}</p>
+    <p>{{ location.address }}</p>
+  </ion-card-content>
+  <ion-row>
+    <ion-col>
+      <ion-button expand="block" (click)="deleteLocation()">
+        <ion-icon name="trash"></ion-icon>
+        <div>Delete location</div>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-card>

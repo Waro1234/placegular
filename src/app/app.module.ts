@@ -1,45 +1,35 @@
-import {NgModule, ErrorHandler} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
-import {MyApp} from './app.component';
+import {RouteReuseStrategy} from '@angular/router';
 
-import {TabsPage} from '../pages/tabs/tabs';
-import {AddlocationPage} from "../pages/addlocation/addlocation";
-import {LocationlistPage} from "../pages/locationlist/locationlist";
-import {LocationCardComponent} from "../components/location-card/location-card";
+import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
+import {StatusBar} from '@ionic-native/status-bar/ngx';
 
-import {StatusBar} from '@ionic-native/status-bar';
-import {SplashScreen} from '@ionic-native/splash-screen';
-import {StorageProvider} from '../providers/storage/storage';
-import {HttpClientModule} from "@angular/common/http";
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+
+import {Camera} from '@ionic-native/camera/ngx';
+import {StorageService} from './storage.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
-    declarations: [
-        MyApp,
-        TabsPage,
-        LocationlistPage,
-        AddlocationPage,
-        LocationCardComponent
-    ],
+    declarations: [AppComponent],
+    entryComponents: [],
     imports: [
         BrowserModule,
+        IonicModule.forRoot(),
+        AppRoutingModule,
         HttpClientModule,
-        IonicModule.forRoot(MyApp)
-    ],
-    bootstrap: [IonicApp],
-    entryComponents: [
-        MyApp,
-        TabsPage,
-        LocationlistPage,
-        AddlocationPage,
-        LocationCardComponent
     ],
     providers: [
         StatusBar,
         SplashScreen,
-        {provide: ErrorHandler, useClass: IonicErrorHandler},
-        StorageProvider
-    ]
+        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+        Camera,
+        StorageService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

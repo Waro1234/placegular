@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      My locations
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let location of locations">
+    <app-location-card [location]=location></app-location-card>
+  </div>
+</ion-content>

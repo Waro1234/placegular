@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Add location
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content style="text-align: center; font-size: 4em;">
+      <a (click)="makePicture()">
+        <ion-icon name="camera"></ion-icon>
+      </a>
+      <img src="{{ location.photo }}">
+    </ion-card-content>
+    <ion-card-content>
+      <ion-input type="text" [(ngModel)]="location.name" placeholder="Title" style="border-bottom: 1px solid lightgray;"></ion-input>
+      <ion-input type="text" [(ngModel)]="location.description" placeholder="Description" style="border-bottom: 1px solid lightgray;"></ion-input>
+      <ion-button (click)="getLocation()">Get location</ion-button>
+      <p>{{ location.address }}</p>
+      <ion-button expand="block" style="margin-top: 14px;" (click)="submit()">Save</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
