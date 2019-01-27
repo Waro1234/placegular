@@ -19,7 +19,7 @@ import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResul
 })
 
 export class Tab2Page {
-    location = new Location(0, '', '', '', [0, 0], '');
+    location = new Location('', '', '', [0, 0], '');
     picture: any;
 
     constructor(
@@ -31,7 +31,7 @@ export class Tab2Page {
 
     submit() {
         this.storageService.insertLocation(this.location);
-        this.location = new Location(0, '', '', '', [0, 0], '');
+        this.location = new Location( '', '', '', [0, 0], '');
     }
 
     makePicture() {

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {StorageService} from '../storage.service';
+import { Location} from '../Location';
 
 @Component({
   selector: 'app-location-card',
@@ -9,6 +10,7 @@ import {StorageService} from '../storage.service';
 
 export class LocationCardComponent implements OnInit {
     @Input() location: Location;
+    @Input() key: number;
 
     ngOnInit(): void {
         console.log(this.location);
@@ -23,6 +25,6 @@ export class LocationCardComponent implements OnInit {
     }
 
     deleteLocation() {
-        this.storageService.removeLocation(0);
+        this.storageService.removeLocation(this.key);
     }
 }

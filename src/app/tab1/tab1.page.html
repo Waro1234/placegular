@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <div *ngFor="let location of locations">
-    <app-location-card [location]=location></app-location-card>
+  <div *ngFor="let item of locations | keyvalue">
+    <app-location-card [location]=item.value [key]=item.key></app-location-card>
   </div>
 </ion-content>
